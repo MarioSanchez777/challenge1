@@ -68,7 +68,6 @@ def letra_a_numero(letra):
     A: 0
     B: 1
     """
-    # Nota: si en algún momento se deseara que el tablero fuera más grande, solo sería cuestión de agregar más letras a la cadena
     numero = LETRAS.index(letra)
     return numero
 
@@ -154,8 +153,7 @@ def abrir_casilla(coordenadas):
     if elemento_actual == MINA:
         HA_PERDIDO = True
         return
-
-    # Si es un elemento sin abri, lo abre
+    # Si es un elemento sin abrir, lo abre
     if elemento_actual == ESPACIO_SIN_ABRIR:
         tablero[fila][columna] = ESPACIO_ABIERTO
     # Comprobamos si hay casillas sin abrir
@@ -218,7 +216,7 @@ def partida():
 def solicitar_casilla():
     global LETRAS, FILAS, COLUMNAS
     while True:
-        casilla = input("Ingresa la casilla del tablero que quieres abrir: ")
+        casilla = input("Ingrese la casilla del tablero a abrir: ")
         casilla = casilla.upper()
         
         #if len(casilla) != 2 and len(casilla) != 3:
@@ -271,12 +269,10 @@ def ejecuta():
             BOMBAS =25
     tablero = []
     minas = []
-    
     inicializar_tablero()
     generar_tablero()
     generar_minas(FILAS, BOMBAS)
     colocar_minas_en_tablero()
-    
     imprimir_tablero()
     while not HA_PERDIDO and not HA_GANADO:
         casilla = solicitar_casilla()
@@ -295,7 +291,4 @@ while True:
         input("El juego ha terminado...")
     if opcion == 3:
         break
-
-
-
 
